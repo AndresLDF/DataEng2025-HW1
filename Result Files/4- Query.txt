@@ -1,0 +1,17 @@
+		SELECT
+		    lpep_pickup_datetime,
+		    trip_distance
+		FROM
+		    public.green_taxi_trip
+		WHERE
+		    trip_distance = (SELECT MAX(trip_distance) FROM public.green_taxi_trip);
+
+or 
+
+		SELECT
+			public.green_taxi_trip.lpep_pickup_datetime,
+			public.green_taxi_trip.trip_distance
+		FROM
+			public.green_taxi_trip
+		ORDER BY public.green_taxi_trip.trip_distance DESC
+		LIMIT 1

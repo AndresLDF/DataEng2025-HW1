@@ -1,0 +1,64 @@
+3.1 Query>
+	SELECT
+		count(1)
+	FROM
+		public.green_taxi_trip
+	WHERE
+		public.green_taxi_trip.lpep_pickup_datetime >= '2019-01-01'AND
+		public.green_taxi_trip.lpep_pickup_datetime < '2019-11-01' AND
+		public.green_taxi_trip.trip_distance <= 1
+		
+    Result> 104830
+
+
+3.2 Query>
+SELECT
+		count(1)
+	FROM
+		public.green_taxi_trip
+	WHERE
+		public.green_taxi_trip.lpep_pickup_datetime >= '2019-01-01'AND
+		public.green_taxi_trip.lpep_pickup_datetime < '2019-11-01' AND
+		public.green_taxi_trip.trip_distance > 1 AND
+		public.green_taxi_trip.trip_distance <= 3
+		
+    Result> 198998
+
+3.3 Query>
+		SELECT
+			count(1)
+		FROM
+			public.green_taxi_trip
+		WHERE
+			public.green_taxi_trip.lpep_pickup_datetime >= '2019-01-01'AND
+			public.green_taxi_trip.lpep_pickup_datetime < '2019-11-01' AND
+			public.green_taxi_trip.trip_distance > 3 AND
+			public.green_taxi_trip.trip_distance <= 7
+
+    Result> 109642
+
+3.4 Query>
+		SELECT
+			count(1)
+		FROM
+			public.green_taxi_trip
+		WHERE
+			public.green_taxi_trip.lpep_pickup_datetime >= '2019-01-01'AND
+			public.green_taxi_trip.lpep_pickup_datetime < '2019-11-01' AND
+			public.green_taxi_trip.trip_distance > 7 AND
+			public.green_taxi_trip.trip_distance <= 10
+    Result> 27686
+
+3.5 Query>
+		SELECT
+			count(1)
+		FROM
+			public.green_taxi_trip
+		WHERE
+			public.green_taxi_trip.lpep_pickup_datetime >= '2019-01-01'AND
+			public.green_taxi_trip.lpep_pickup_datetime < '2019-11-01' AND
+			public.green_taxi_trip.trip_distance > 10
+
+   Result> 35201
+
+104,830 -198,998 -109,642 - 27,686 - 35,201

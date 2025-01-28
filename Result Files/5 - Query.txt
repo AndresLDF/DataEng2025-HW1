@@ -1,0 +1,19 @@
+SELECT
+	    CAST(t.lpep_pickup_datetime AS DATE) AS date,
+	    SUM(t.total_amount) AS total_amount_s,
+	    z."Zone"
+	FROM
+	    public.green_taxi_trip t
+	JOIN 
+	    public.taxi_zones z ON t."PULocationID" = z."LocationID"
+	WHERE
+	     CAST(t.lpep_pickup_datetime AS DATE) = '2019-10-18'
+	GROUP BY 
+		date, z."Zone"
+	HAVING
+    	SUM(t.total_amount) > 13000;
+
+date	        total_amount_s	        Zone
+2019-10-18	18686.680000000084	East Harlem North
+2019-10-18	16797.260000000082	East Harlem South
+2019-10-18	13029.79000000003	Morningside Heights
